@@ -1,27 +1,39 @@
 {
-  "name": "haileysanura",
-  "description": "Gatsby default starter",
+  "name": "storyblok-gatsby-starter",
+  "description": "Starter project for gatsby using storyblok",
   "version": "1.0.0",
   "author": "Tassos Lambrou",
   "dependencies": {
+    "eslint": "6",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-react-app": "^5.0.1",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
     "gatsby": "next",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
-    "gatsby-source-storyblok": "storyblok/gatsby-source-storyblok#feature/datasources",
+    "gatsby-plugin-sitemap": "^2.2.22",
+    "gatsby-source-storyblok": "^0.2.6",
+    "gatsby-storyblok-image": "^0.2.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "storyblok-react": "^0.0.10"
   },
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
-    "build": "gatsby build",
-    "dev": "yarn install && gatsby develop",
+    "build": "NODE_ENV=production yarn install && gatsby build",
+    "dev": "NODE_ENV=development yarn install && gatsby develop -p 9000",
+    "start": "yarn dev",
     "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "gatsby clean",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "inspect": "node --inspect-brk --no-lazy node_modules/gatsby/dist/bin/gatsby develop"
   },
   "devDependencies": {
     "prettier": "^1.14.2"
