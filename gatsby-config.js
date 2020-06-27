@@ -22,8 +22,8 @@ module.exports = {
       options: {
         accessToken: 'RdqDe1WHDvFXIwKNLFrQsQtt',
         homeSlug: 'home',
-        version: 'draft'
-      }
-    }
+        version: 'draft',
+      },
+    },
   ],
 }

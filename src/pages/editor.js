@@ -2,7 +2,7 @@ import React from 'react'
 import SbEditable from 'storyblok-react'
 import config from '../../gatsby-config'
 
-const loadStoryblokBridge = function(cb) {
+const loadStoryblokBridge = function (cb) {
   let sbConfigs = config.plugins.filter((item) => {
     return item.resolve === 'gatsby-source-storyblok'
   })
@@ -14,7 +14,7 @@ const loadStoryblokBridge = function(cb) {
   document.getElementsByTagName('head')[0].appendChild(script)
 }
 
-const getParam = function(val) {
+const getParam = function (val) {
   var result = ''
   var tmp = []
 
@@ -34,24 +34,29 @@ const getParam = function(val) {
 class StoryblokEntry extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {story: null}
+    this.state = { story: null }
   }
 
   componentDidMount() {
-    loadStoryblokBridge(() => { this.initStoryblokEvents() })
-  }
-
-  loadStory(payload) {
-    window.storyblok.get({
-      slug: getParam('path'), 
-      version: 'draft'
-    }, (data) => {
-      this.setState({story: data.story})
+    loadStoryblokBridge(() => {
+      this.initStoryblokEvents()
     })
   }
 
+  loadStory(payload) {
+    window.storyblok.get(
+      {
+        slug: getParam('path'),
+        version: 'draft',
+      },
+      (data) => {
+        this.setState({ story: data.story })
+      }
+    )
+  }
+
   initStoryblokEvents() {
-    this.loadStory({storyId: getParam('path')})
+    this.loadStory({ storyId: getParam('path') })
 
     let sb = window.storyblok
 
@@ -61,7 +66,7 @@ class StoryblokEntry extends React.Component {
 
     sb.on('input', (payload) => {
       if (this.state.story && payload.story.id === this.state.story.id) {
-        this.setState({story: payload.story})
+        this.setState({ story: payload.story })
       }
     })
 
@@ -74,16 +79,14 @@ class StoryblokEntry extends React.Component {
 
   render() {
     if (this.state.story == null) {
-      return (<div></div>)
+      return <div></div>
     }
 
     let content = this.state.story.content
 
     return (
       <SbEditable content={content}>
-      <div>
-        {content.component}
-      </div>
+        <div>{content.component}</div>
       </SbEditable>
     )
   }

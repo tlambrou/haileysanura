@@ -4,10 +4,9 @@
   "version": "1.0.0",
   "author": "Tassos Lambrou",
   "dependencies": {
-    "eslint": "6",
+    "eslint": "7",
     "eslint-config-prettier": "^6.3.0",
-    "eslint-config-react-app": "^5.0.1",
-    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-flowtype": "5",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "gatsby": "^2.13.76",
@@ -19,7 +18,8 @@
     "gatsby-storyblok-image": "^0.2.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-helmet": "^5.2.0",
+    "react-helmet": "6",
+    "react-refresh": "^0.8.3",
     "storyblok-react": "^0.0.10"
   },
   "keywords": [
@@ -36,7 +36,7 @@
     "inspect": "node --inspect-brk --no-lazy node_modules/gatsby/dist/bin/gatsby develop"
   },
   "devDependencies": {
-    "prettier": "^1.14.2"
+    "prettier": "2"
   },
   "repository": {
     "type": "git",

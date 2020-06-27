@@ -12,7 +12,7 @@ class StoryblokEntry extends React.Component {
   static prepareStory(props) {
     const story = Object.assign({}, props.pageContext.story)
     story.content = JSON.parse(story.content)
-    
+
     return { story }
   }
 
@@ -25,11 +25,7 @@ class StoryblokEntry extends React.Component {
   render() {
     let content = this.state.story.content
 
-    return (
-      <div>
-        {content.component}
-      </div>
-    )
+    return <div>{content.component}</div>
   }
 }
 

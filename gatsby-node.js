@@ -8,25 +8,27 @@ exports.createPages = ({ graphql, actions }) => {
 
     resolve(
       graphql(
-        `{
-          allStoryblokEntry {
-            edges {
-              node {
-                id
-                name
-                created_at
-                uuid
-                slug
-                full_slug
-                content
-                is_startpage
-                parent_id
-                group_id
+        `
+          {
+            allStoryblokEntry {
+              edges {
+                node {
+                  id
+                  name
+                  created_at
+                  uuid
+                  slug
+                  full_slug
+                  content
+                  is_startpage
+                  parent_id
+                  group_id
+                }
               }
             }
           }
-        }`
-      ).then(result => {
+        `
+      ).then((result) => {
         if (result.errors) {
           console.log(result.errors)
           reject(result.errors)
@@ -38,8 +40,8 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/${entry.node.full_slug}/`,
             component: storyblokEntry,
             context: {
-              story: entry.node
-            }
+              story: entry.node,
+            },
           })
         })
       })
